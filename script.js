@@ -83,26 +83,23 @@ function displayMovieList(movies) {
 
 // Function to load movie details when a movie is clicked
 function loadMovieDetails() {
-
-    // show all movies from database corresponding the user input in search box
     const searchListMovies = searchList.querySelectorAll('.search-list-item');
-    
-    // for each movie shown in the list
     searchListMovies.forEach(movie => {
-        // add a click event listener, which when clicked
         movie.addEventListener('click', async () => {
-
-            // Hides the search list & clears the search box
             searchList.classList.add('hide-search-list');
             movieSearchBox.value = "";
 
-            // and fetch the details of that movie then display them on-screen to the user
-            const result = await fetch(`https://www.omdbapi.com/?i=${movie.dataset.id}&apikey=9e67004a`);
-            const movieDetails = await result.json();
-            displayMovieDetails(movieDetails);
+            try {
+                const result = await fetch(`https://www.omdbapi.com/?i=${movie.dataset.id}&apikey=9e67004a`);
+                const movieDetails = await result.json();
+                displayMovieDetails(movieDetails);
+            } catch (error) {
+                console.error('Error fetching movie details:', error);
+            }
         });
     });
 }
+
 
 // Function to display the movie details
 function displayMovieDetails(details) {
