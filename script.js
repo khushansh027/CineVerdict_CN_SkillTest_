@@ -97,7 +97,7 @@ function loadMovieDetails() {
             movieSearchBox.value = "";
 
             // and fetch the details of that movie then display them on-screen to the user
-            const result = await fetch(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=fc1fef96`);
+            const result = await fetch(`https://www.omdbapi.com/?i=${movie.dataset.id}&apikey=fc1fef96`);
             const movieDetails = await result.json();
             displayMovieDetails(movieDetails);
         });
