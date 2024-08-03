@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
     <div class="wrapper">
         <!-- title -->
         <div class="title">
@@ -26,17 +27,29 @@
                 </div>
             </div>
         </div>
-
+        
         <!-- result container -->
         <div class="result">
             <div class="result-container">
                 <div class="result-class" id="result-id">
-                    <!-- movie information comes here dynamically-->
+                    <!-- movie information comes here dynamically -->
+                </div>
+            </div>
+            <div class="result-container" style="display:none;">
+                <div class="result-class" id="favourites-list">
+                    <!-- movie information comes here dynamically -->
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- favourites button -->
+    <div class="favourites-button">
+        <button id="view-favourites" class="view-favourites" onclick="showFavourites()">View Favourites</button>
+    </div>
+
+    <!-- js script linking -->
     <script src="script.js"></script>
+
 </body>
 </html>
-
